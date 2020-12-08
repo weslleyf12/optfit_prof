@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/cidade-estados-brasil.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-firestore.js"></script>
+
+    <script>
+        let firebaseConfig = {
+          apiKey: "AIzaSyDA-BnH5OMGpRKZsg1CNku_7KKTWrqek70",
+          authDomain: "dietas-1c17a.firebaseapp.com",
+          databaseURL: "https://dietas-1c17a.firebaseio.com",
+          projectId: "dietas-1c17a",
+          storageBucket: "dietas-1c17a.appspot.com",
+          messagingSenderId: "31659761101",
+          appId: "1:31659761101:web:f13077706f2f56241bb884",
+          measurementId: "G-EVLFGFSGE2"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+        let db = firebase.firestore()
+    </script>
+	<title>Cadastro</title>
+</head>
+<body onload="initRegistro()" class="regBackground">
+	<div class="divRegForm border shadow rounded p-3">
+
+	<form id="form1" class="regForm">
+		<div class="mb-4">
+			<div class="form-group">
+				<label for="regEmail">Email</label>
+				<input type="text" maxlength="40" placeholder="Insira o email" class="form-control" required id="regEmail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+				<small>Será o endereço de email utilizado pelos seus clientes para entrar em contato com você.</small>
+			</div>
+	  		<div class="form-row">
+	  			<div class="col-md-6">
+					<label for="regNome">Nome</label>
+					<input type="text" maxlength="12" placeholder="Insira o nome" class="form-control" required pattern="[a-z\s]+$" id="regNome">
+	  			</div>
+	  			<div class="col-md-6">
+					<label for="regSobrenome">Sobrenome</label>
+					<input type="text" maxlength="12" placeholder="Insira o sobrenome" class="form-control" required pattern="[a-z\s]+$" id="regSobrenome">
+				</div>
+			</div>
+		</div>
+
+		<h1 class="m-3">Localização</h1>
+		<select id="regEstados" class="custom-select custom-select-sm mb-3" onchange="getCidades(this.value)"></select>
+		<select id="regCidades" class="custom-select custom-select-sm mb-3"></select>
+
+		<div class="form-row mb-3">
+			<h7 style="text-indent: justify; color:#455a64" class="m-2">A senha deve conter de 6 a 20 caracteres, contendo algum número de 0-9 e algum caractere especial !@#$%&*/</h7>
+			<div class="col-md-6">
+				<label for="regSenha">Senha</label>
+				<input type="password" class="form-control form-control-sm" placeholder="Insira a senha" minlength="6" maxlength="20" required id="regSenha">
+				<div senhaFeedback class="displayNone">
+      			</div>
+			</div>
+			<div class="col-md-6">
+				<label for="regSenhaValid">Confirmar senha</label>
+				<input type="password" class="form-control form-control-sm" placeholder="Reinserir senha" minlength="6" maxlength="20" required id="regSenhaValid">
+			</div>
+		</div>
+		<p style="text-align: center">Passo 1 de 3</p>
+		<button type="submit" class="btn btn-primary m-auto" style="display: inherit" onclick="$('#form1').hide(); $('#form2').fadeIn(800)">Continuar</button>
+	</form>
+	<form id="form2" class="regForm">
+		<div class="form-group">
+			<label for="regWpp">WhatsApp</label>
+			<input type="tel" class="form-control form-control-sm" maxlength="15" placeholder="(xx) xxxx-xxxx" id="regWpp" onkeyup="mtel(this)">
+			<label for="regInsta">Instagram</label>
+			<input type="url" maxlength="60" placeholder="URL do seu perfil" class="form-control form-control-sm" id="regInsta">
+			<label for="regFacebook">Facebook</label>
+			<input type="url" maxlength="60" placeholder="URL do seu perfil" class="form-control form-control-sm" id="regFacebook">
+			<small class="form-text text-muted">Suas redes sociais serão para usados para contato com seus clientes.</small>
+		</div>
+
+		<label for="categoria-prof">Categoria profissional</label>
+		<select id="categoria-prof" class="custom-select mb-2" size="3" multiple>
+		  <option value="1">Personal Trainer</option>
+		  <option value="2">Nutricionista</option>
+		  <option value="3">Fisioterapeuta</option>
+		</select>
+
+	  	<div class="form-group">
+		    <label for="fileCapacitacaoProfissional">Comprovante de categoria profissional</label>
+    		<input type="file" class="form-control-file" id="fileCapacitacaoProfissional">
+    		<small>Você só pode atuar como profissional pelo aplicativo depois de comprovar a capacitação de exercer tais funções.
+    			Formatos aceitos:
+    			png; jpg; jpeg; pdf.
+    		</small>
+  		</div>
+
+		<p style="text-align: center">Passo 2 de 3</p>
+		<div class="container">
+			<div class="row justify-content-md-center">
+				<button type="button" class="btn btn-danger m-1" onclick="$('#form3').hide(); $('#form2').hide(); $('#form1').fadeIn(800)">Voltar</button>
+				<button type="button" class="btn btn-primary m-1" onclick="$('#form1').hide(); $('#form2').hide(); $('#form3').fadeIn(800)">Continuar</button>
+			</div>
+		</div>
+	</form>
+
+	<form id="form3" class="regForm">
+		Planos<br>
+		<p style="text-align: center">Passo 3 de 3</p>
+		<div class="row justify-content-md-center">
+			<button type="button" class="btn btn-danger m-1" onclick="$('#form3').hide(); $('#form2').fadeIn('fast')">Voltar</button>
+			<button type="button" class="btn btn-primary m-1" onclick="">Continuar</button>
+		</div>
+	</form>
+	</div>
+</body>
+</html>

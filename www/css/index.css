@@ -1,0 +1,163 @@
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+body {
+    font-family: Roboto, 'Segoe UI', Tahoma, sans-serif;
+    font-size:12px;
+    height:100%;
+    margin:0px;
+    padding:0px;
+    background-color: #f6f7f9;
+}
+
+h1 {
+    font-size:24px;
+    font-weight:normal;
+    margin:0px;
+    overflow:visible;
+    padding:0px;
+    text-align:center;
+}
+
+@media (max-width: 281px) {
+    .logoLogin {width: 90vw}
+}
+@media (max-width: 1050px) {
+    #itens_perfil { margin: 0 auto }
+}
+
+/* páginas */
+#editExerc, #editCardapio, #regPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#editNome {
+    margin-top: calc(1rem + 10px);
+}
+#nomeUsuario {
+    outline: none;
+    background: none;
+    height: 30px;
+    font-size: 1.5rem;
+}
+
+/* FIM */
+
+.h-80_px {height: 80px; z-index: 101}
+.w-padrao {width: 329px}
+#nome-do-alimento, #tecAvanc, #exercName {width: 265px /*329px - 80px*/}
+#idTabelaDietas, #instExerc, #sxr {width: 60px !important; margin-right: 4px}
+#perfil{padding-top: 100px}
+.w-sm {width: 120px !important}
+.h-sm {height: 31px}
+
+#header a {text-decoration: none}
+a[self_active] {
+    color: #000 !important;
+    font-size: 1.2em;
+    font-weight: bolder !important;
+}
+
+.border_pages {
+    border: 2px solid #e0e0e0;
+    border-radius: 20px;
+    background-color: #fff;
+    padding: 50px
+}
+
+.list_users {
+    overflow:hidden;
+    overflow-y:auto;
+    height: 48.5vh !important;
+}
+
+.no_drag {
+    user-drag: none; 
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+/* reg */
+
+.regBackground {
+    background-image: url('../img/background_reg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed
+}
+
+.displayNone{display:none};.displayBlock{display:block};.txtCenter{text-align: center}
+
+.regForm{
+    width: 450px;
+}
+
+.divRegForm {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #f6f6f6
+}
+
+/* Login */
+
+.font-lato {
+    font-family: "Lato", sans-serif;
+}
+
+.default_header {
+    font-size: 2.25rem;
+    color: #333;
+    text-align: left;
+}
+
+.sidenav {
+    height: 100vh;
+    background: linear-gradient(180deg, #343a40 0%, rgba(131,129,129,1) 100%);
+    overflow-x: hidden;
+}
+
+.login-main{
+    text-align: center;
+    color: #fff;
+}
+
+.login-form {
+    min-width: 270px;
+    left: 50%;
+    position: absolute;
+    top: 60%;
+    transform: translate(-50%, -50%);
+    margin-right: -50%;
+    padding: 20px;
+    background-color: #f6f6f6;
+}
+
+.side_list {
+    padding-top: 100px;
+    width: 250px;
+    font-size:16px;
+    z-index: 99;
+}
+
+.align-center_absolute {
+    position: absolute;               /* 2 */
+    top: 50%;                         /* 3 */
+    transform: translate(0, -50%)
+}
+
+.black {color: #000;}
+.headerBackground {
+    background-color: #3bb78f;
+    background-image: linear-gradient(315deg, #3bb78f 0%, #0bab64 74%);
+    border-bottom: 1px solid #8fd49f;
+}
+.no_background {background:none};

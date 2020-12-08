@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+        <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+        <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <link rel="stylesheet" type="text/css" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-firestore.js"></script>
+
+        <script>
+            let firebaseConfig = {
+              apiKey: "AIzaSyDA-BnH5OMGpRKZsg1CNku_7KKTWrqek70",
+              authDomain: "dietas-1c17a.firebaseapp.com",
+              databaseURL: "https://dietas-1c17a.firebaseio.com",
+              projectId: "dietas-1c17a",
+              storageBucket: "dietas-1c17a.appspot.com",
+              messagingSenderId: "31659761101",
+              appId: "1:31659761101:web:f13077706f2f56241bb884",
+              measurementId: "G-EVLFGFSGE2"
+            };
+
+            firebase.initializeApp(firebaseConfig);
+            let db = firebase.firestore()
+        </script>
+        <title>Optimus Fit Professionals</title>
+    </head>
+    <body onload="initApp()">
+        <div class="sidenav font-lato">
+            <div class="login-main mb-5">
+                <image src="img/logo_web.png" class="logoLogin mt-5"></image>
+            </div>
+            <form class="login-form border border-secondary rounded shadow-lg bg-white p-3 mb-5 m-auto">
+                <div class="form-group">
+                    <label for="emailLogin">Email</label>
+                    <input type="email" class="form-control" id="emailLogin" aria-describedby="emailHelp" placeholder="Seu email">
+                </div>
+                <div class="form-group">
+                    <label for="senhaLogin">Senha</label>
+                    <input type="password" class="form-control" id="senhaLogin" placeholder="Sua senha">
+                </div>
+                <div class="form-group form-check mb-2">
+                    <input type="checkbox" class="form-check-input" id="check-box-login">
+                    <label class="form-check-label" for="check-box-login">Manter conectado</label>
+                </div>
+                <a href="regPage.html" class="pb-2">Cadastre-se</a>
+                <span id="badgeLogin" class="badge badge-danger displayNone p-3 mr-auto ml-auto mb-1 mt-3" style="width: 100%"></span>
+                <button btnLogin type="button" class="btn btn-primary m-auto" onclick="entrar()" style="display:inherit">
+                    <div loadLogin class="displayNone">
+                        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                        <span class="sr-only">Carregando...</span>
+                    </div>
+                    <p loadLogin class="m-0">Entrar</p>
+                </button>
+            </form>
+        </div>
+    </body>
+</html>
