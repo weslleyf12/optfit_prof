@@ -46,14 +46,18 @@ h1 {
 }
 
 /* FIM */
-
+.w-450 {width: 450px}
+.h-400_px {height: 450px}
+.h-100vh {height: 100vh}
 .h-80_px {height: 80px; z-index: 101}
 .w-padrao {width: 329px}
 #nome-do-alimento, #tecAvanc, #exercName {width: 265px /*329px - 80px*/}
 #idTabelaDietas, #instExerc, #sxr {width: 60px !important; margin-right: 4px}
-#perfil{padding-top: 100px}
+.pt-80{padding-top: 100px}
 .w-sm {width: 120px !important}
 .h-sm {height: 31px}
+.pl-280 {padding-left: 280px}
+.d-grid {display: grid}
 
 #header a {text-decoration: none}
 a[self_active] {
@@ -64,9 +68,9 @@ a[self_active] {
 
 .border_pages {
     border: 2px solid #e0e0e0;
-    border-radius: 20px;
     background-color: #fff;
-    padding: 50px
+    padding: 50px 30px;
+    border-radius: 10px
 }
 
 .list_users {
@@ -95,10 +99,6 @@ a[self_active] {
 
 .displayNone{display:none};.displayBlock{display:block};.txtCenter{text-align: center}
 
-.regForm{
-    width: 450px;
-}
-
 .divRegForm {
     position: absolute;
     left: 50%;
@@ -113,16 +113,18 @@ a[self_active] {
     font-family: "Lato", sans-serif;
 }
 
-.default_header {
-    font-size: 2.25rem;
+.header_inside {
+    font-size: 2rem;
     color: #333;
-    text-align: left;
+    text-align: center;
+    margin-bottom: 0;
+    align-self: start
 }
 
 .sidenav {
     height: 100vh;
     background: linear-gradient(180deg, #343a40 0%, rgba(131,129,129,1) 100%);
-    overflow-x: hidden;
+    overflow-x: hidden
 }
 
 .login-main{
@@ -146,6 +148,8 @@ a[self_active] {
     width: 250px;
     font-size:16px;
     z-index: 99;
+    background-color: #fff;
+    border-right: 1px solid #e0e0e0;
 }
 
 .align-center_absolute {

@@ -148,23 +148,22 @@ function initPage2() {
             $('#btnCadastro').on('click', () => {
                 cadastrar()
             })
-            
-            addPadding('#editCardapio', 'top')
-            addPadding('#editCardapio', 'bottom')
-            addPadding('#editExerc', 'bottom')
-            addPadding('#editExerc', 'top')
-            addPadding('#regPage', 'bottom')
 
-            new Promise(() => {
-                db.doc('admin/' + firebase.auth().currentUser.email).get().then(async docs => {
-                    if (docs.data().categoria === 0) {
-                        await apaga_goto(0)
-                    } else {
-                        await apaga_goto(1)
-                    }
-                    return
-                })
-            }).then($('#page').fadeIn(800))
+            //addPadding('#editCardapio', 'top')
+            //addPadding('#editCardapio', 'bottom')
+            //addPadding('#editExerc', 'bottom')
+            //addPadding('#editExerc', 'top')
+            //addPadding('#regPage', 'bottom')
+
+            db.doc('admin/' + firebase.auth().currentUser.email).get().then(docs => {
+                if (docs.data().categoria === 0) {
+                    return apaga_goto(0)
+                } else {
+                    return apaga_goto(1)
+                }
+                
+            })
+
         } else {
             window.location.href = 'index.html'
         }
@@ -173,11 +172,10 @@ function initPage2() {
 
 function apaga_goto(v) {
     if (v === 0) {
-        $('#editCardapio').hide();$('#goto_card').hide()
+        $('#editExerc').fadeIn(800);$('#goto_card').hide()
     } else {
-        $('#editExerc').hide();$('#goto_exerc').hide()
+        $('#editCardapio').fadeIn(800);$('#goto_exerc').hide()
     }
-
     return
 }
 
@@ -218,6 +216,12 @@ const waitUntil = function (fn, condition, interval) {
 
     return shell;
 };
+
+function showEdit(arg){
+    if (arg) {
+        $('#editCardapio').fadeIn(600);$('#regPage').hide()
+    } else {$('#editCardapio').hide();$('#regPage').fadeIn(600)}
+}
 
 function add_liClientes() {
     db.doc('admin/'+firebase.auth().currentUser.email).get().then( (docs) => {

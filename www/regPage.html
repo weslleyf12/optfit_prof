@@ -33,7 +33,7 @@
 <body onload="initRegistro()" class="regBackground">
 	<div class="divRegForm border shadow rounded p-3">
 
-	<form id="form1" class="regForm">
+	<form id="form1" class="w-450">
 		<div class="mb-4">
 			<div class="form-group">
 				<label for="regEmail">Email</label>
@@ -72,7 +72,7 @@
 		<p style="text-align: center">Passo 1 de 3</p>
 		<button type="submit" class="btn btn-primary m-auto" style="display: inherit" onclick="$('#form1').hide(); $('#form2').fadeIn(800)">Continuar</button>
 	</form>
-	<form id="form2" class="regForm">
+	<form id="form2" class="w-450">
 		<div class="form-group">
 			<label for="regWpp">WhatsApp</label>
 			<input type="tel" class="form-control form-control-sm" maxlength="15" placeholder="(xx) xxxx-xxxx" id="regWpp" onkeyup="mtel(this)">
@@ -108,7 +108,7 @@
 		</div>
 	</form>
 
-	<form id="form3" class="regForm">
+	<form id="form3" class="w-450">
 		Planos<br>
 		<p style="text-align: center">Passo 3 de 3</p>
 		<div class="row justify-content-md-center">
